@@ -161,6 +161,9 @@
             const actionFilter = (params['action'] || '').toLowerCase();
 
             return data.filter(packet => {
+                console.log('Action Filter:', actionFilter);
+                console.log('Packet Status:', packet.status);
+                
                 const matchesIp = ipFilter === '' || packet.sip.toLowerCase().includes(ipFilter);
                 const matchesPort = portFilter === '' || packet.dport.toString().toLowerCase().includes(portFilter);
                 const matchesAction = actionFilter === '' || packet.status.toLowerCase().includes(actionFilter);
